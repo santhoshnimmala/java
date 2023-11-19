@@ -12,7 +12,6 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - mvn clean test
       - mvn install
   post_build:
     commands:
