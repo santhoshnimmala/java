@@ -8,10 +8,11 @@ phases:
     commands:
       - echo Nothing to do in the pre_build phase...
       - codebuild-breakpoint
-      - mvn checkstyle:checkstyle
+      
   build:
     commands:
       - echo Build started on `date`
+      - mvn clean test
       - mvn install
   post_build:
     commands:
@@ -19,3 +20,7 @@ phases:
 artifacts:
   files:
     - target/messageUtil-1.0.jar
+reports:
+  java-reports:
+    files:
+      - "target/surefire-reports/*.xml"
